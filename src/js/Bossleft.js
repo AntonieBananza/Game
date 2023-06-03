@@ -33,6 +33,14 @@ export class BossL extends Actor {
 
         this.timer.start();
 
+        this.actions.repeatForever((ctx) => {
+
+            ctx.moveBy(-100, 0, 50)
+
+            ctx.moveBy(100, 0, 50)
+
+        })
+
         
     console.log("hi");
 

@@ -1,6 +1,7 @@
 import { Actor, CollisionType, Vector, Shape, Input, Timer } from "excalibur";
 import {Resources} from './resources.js';
 import { Bullet } from "./playerBullet.js";
+import { GameSmover } from "./GameSmover.js";
 
 export class Player extends Actor {
 
@@ -9,6 +10,7 @@ export class Player extends Actor {
     offset
     timer
     cooldown = false
+    timer2
 
     constructor(){
 
@@ -22,7 +24,19 @@ export class Player extends Actor {
             repeats: false,
             interval:300
         })
+
+        this.timer2 = new Timer({
+            fcn: () => this.die(),
+            repeats: false,
+            interval:400
+        })
     }
+
+    onActivate(ctx) {
+
+        this.player.pos = new Vector(400, 480);
+        this.player.reset();
+    }         
 
     onInitialize(engine){
 
@@ -35,6 +49,7 @@ export class Player extends Actor {
 
         this.game = engine
         this.game.currentScene.add(this.timer)
+        this.game.currentScene.add(this.timer2)
     }
 
     onPreUpdate(engine) {
@@ -66,7 +81,6 @@ export class Player extends Actor {
     attack() {
         if(this.cooldown === false){
         this.pos = new Vector(this.pos.x , 445);
-
         const plaser = new Bullet();
         plaser.pos = this.pos.clone();
         this.scene.add(plaser);
@@ -79,11 +93,22 @@ export class Player extends Actor {
     Boom () {
 
         this.lives -= 1 
+        this.graphics.use('Unalive');
+        this.timer2.start();
 
+    }
+
+    die() {
         if(this.lives < 1) {
-            this.graphics.use('Unalive');
+            
+            this.game.goToScene('gameOver', new GameSmover());
         }
+    }
 
+    reset() {
+        this.graphics.use('Alive');
+        this.lives = 1 
+        
     }
 }
 

@@ -10,7 +10,8 @@ import rightboss from '../images/rightarm.png'
 import leftborder from '../images/leftborder.png'
 import rightborder from '../images/rightborder.png'
 import explosion from '../images/explosion.gif'
-  
+import gameover from '../images/GameOver.png'
+import startover from '../images/StartOver.png'
 
 const Resources = {
     Background: new ImageSource(background),
@@ -23,8 +24,24 @@ const Resources = {
     BossR: new ImageSource(rightboss),
     BorderL: new ImageSource(leftborder),
     BorderR: new ImageSource(rightborder),
-    Explosion: new ImageSource(explosion)
+    Explosion: new ImageSource(explosion),
+    GameOver: new ImageSource(gameover),
+    StartOver: new ImageSource(startover)
 }
-const ResourceLoader = new Loader([Resources.Background, Resources.Player, Resources.Plaser, Resources.BossHead, Resources.BossPellet, Resources.BossPelletgif, Resources.BossL, Resources.BossR, Resources.BorderL, Resources.BorderR, Resources.Explosion])
+const ResourceLoader = new Loader([
+        Resources.Background, 
+        Resources.Player, 
+        Resources.Plaser, 
+        Resources.BossHead, 
+        Resources.BossPellet, 
+        Resources.BossPelletgif, 
+        Resources.BossL, 
+        Resources.BossR, 
+        Resources.BorderL, 
+        Resources.BorderR,
+        Resources.Explosion,
+        Resources.GameOver,
+        Resources.StartOver
+])
 
 export { Resources, ResourceLoader }

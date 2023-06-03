@@ -32,6 +32,14 @@ export class BossR extends Actor {
 
         this.timer.start();
 
+        this.actions.repeatForever((ctx) => {
+
+            ctx.moveBy(100, 0, 50)
+
+            ctx.moveBy(-100, 0, 50)
+
+        })
+
     }
 
     onPreUpdate() {

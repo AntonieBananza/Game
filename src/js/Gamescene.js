@@ -9,11 +9,28 @@ import { SpacePaper } from './Background'
 
 export class Scene1 extends Scene {
 
+    player
+    bossHead
+    bossLArm
+    bossRArm
+    
+
+
     constructor(){
         super({
             width: 800,
             height: 600   
         })
+    }
+
+    onActivate(ctx){
+        this.player.pos = new Vector(400, 480)
+        this.bossHead.pos = new Vector(400, 25)
+        this.bossLArm.pos = new Vector(200, 50)
+        this.bossRArm.pos = new Vector(600, 50)
+
+        this.player.reset()
+
     }
 
     onInitialize(){
@@ -26,21 +43,21 @@ export class Scene1 extends Scene {
         const wallR = new BorderR();
         this.add(wallR);
 
-        const player = new Player();
-        this.add(player);
-        player.pos = new Vector(400, 480)
+        this.player = new Player();
+        this.add(this.player);
+        this.player.pos = new Vector(400, 480)
 
-        const bossHead = new BossHead();
-        this.add(bossHead);
-        bossHead.pos = new Vector(400, 25)
+        this.bossHead = new BossHead();
+        this.add(this.bossHead);
+        this.bossHead.pos = new Vector(400, 25)
 
-        const bossLArm = new BossL();
-        this.add(bossLArm);
-        bossLArm.pos = new Vector(200, 50)
+        this.bossLArm = new BossL();
+        this.add(this.bossLArm);
+        this.bossLArm.pos = new Vector(200, 50)
 
-        const bossRArm = new BossR();
-        this.add(bossRArm);
-        bossRArm.pos = new Vector(600, 50)
+        this.bossRArm = new BossR();
+        this.add(this.bossRArm);
+        this.bossRArm.pos = new Vector(600, 50)
         
     }
 }
