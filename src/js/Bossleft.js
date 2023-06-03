@@ -1,24 +1,37 @@
-import { Actor, CollisionType, Vector, Shape, Input } from "excalibur";
+import { Actor, CollisionType, Vector, Shape, Input, Timer } from "excalibur";
 import {Resources} from './resources.js'; 
+import { ohNo } from "./Enemypellet.js";
+
 
 
 export class BossL extends Actor { 
 
-    points = 0;
+    //points = 0;
+    timer
 
     constructor() {
         super({
             width: Resources.BossL.width,
             height: Resources.BossL.height   
         })
+        this.timer = new Timer({
+            fcn: () => this.shoot(),
+            repeats: true,
+            interval:1400
+        })
     }  
 
-    onInitialize(){
+    onInitialize(engine){
 
         this.body.CollisionType = CollisionType.Active
 
         this.graphics.add(Resources.BossL.toSprite());
         this.scale = new Vector (1.2,1.2);
+
+        this.game = engine
+        this.game.currentScene.add(this.timer)
+
+        this.timer.start();
 
         
     console.log("hi");
@@ -33,11 +46,9 @@ export class BossL extends Actor {
         this.vel = new Vector(xspeed, yspeed)
     }
 
-    addPointsLeft(amount) {
-
-        this.points += amount;
-        console.log(this.points + ' from Left')
-
+    shoot() {
+        const ohNoBullet = new ohNo();
+        ohNoBullet.pos = this.pos.clone();
+        this.scene.add(ohNoBullet);
     }
-
 }

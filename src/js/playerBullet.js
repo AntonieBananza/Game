@@ -8,6 +8,8 @@ import { BossR } from './Bossright.js';
 
 export class Bullet extends Actor {
 
+    points = 0
+
     constructor(){
 
         super({
@@ -23,7 +25,7 @@ export class Bullet extends Actor {
 
         this.graphics.add(Resources.Plaser.toSprite());
         this.scale = new Vector(0.5,0.5);
-        this.vel = new Vector(0, -400);
+        this.vel = new Vector(0, -600);
 
         this.on("collisionstart", (event) => this.hit(event));
     }
@@ -31,18 +33,21 @@ export class Bullet extends Actor {
     hit(event) {
 
         if(event.other instanceof BossHead) {
-            event.other.addPointsMain(10);
+         
             this.kill();
+            this.points + 10
         }
 
         if(event.other instanceof BossL) {
-            event.other.addPointsLeft(10);
+      
             this.kill();
+            this.points + 10
         }
 
         if(event.other instanceof BossR) {
-            event.other.addPointsRight(10);
-            this.kill();
+   
+            this.kill(); 
+            this.points + 10
         }
     }
 }

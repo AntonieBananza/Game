@@ -4,7 +4,7 @@ import {Resources} from './resources.js';
 
 export class BossHead extends Actor { 
 
-    points = 0;
+    //points = 0;
     game;
 
     constructor() {
@@ -31,10 +31,6 @@ export class BossHead extends Actor {
         this.vel = new Vector(xspeed, yspeed)
     }
 
-    addPointsMain(amount){
 
-        this.points += amount;
-        console.log(this.points + " from Boss Head");
-    }
 
 }
