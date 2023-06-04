@@ -23,8 +23,8 @@ export class ohNo extends Actor {
         this.body.useGravity = false;
 
         this.graphics.add(Resources.BossPellet.toSprite());
-        this.scale = new Vector(0.5,0.5);
-        this.vel = new Vector(0, 300);
+        
+        
 
         this.on("collisionstart", (event) => this.ohShoot(event));
     }

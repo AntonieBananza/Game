@@ -53,6 +53,8 @@ export class BossR extends Actor {
     shoot() {
         const ohNoBullet = new ohNo();
         ohNoBullet.pos = this.pos.clone();
+        ohNoBullet.scale = new Vector(0.5,0.5);
+        ohNoBullet.vel = new Vector(-200, 300);
         this.scene.add(ohNoBullet);
 
     }

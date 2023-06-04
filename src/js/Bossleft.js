@@ -4,6 +4,7 @@ import { ohNo } from "./Enemypellet.js";
 
 
 
+
 export class BossL extends Actor { 
 
     //points = 0;
@@ -56,7 +57,9 @@ export class BossL extends Actor {
 
     shoot() {
         const ohNoBullet = new ohNo();
+        ohNoBullet.scale = new Vector(0.5,0.5);
         ohNoBullet.pos = this.pos.clone();
+        ohNoBullet.vel = new Vector(200, 300);
         this.scene.add(ohNoBullet);
     }
 }

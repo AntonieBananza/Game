@@ -4,11 +4,12 @@ import { Resources } from './resources.js'
 import { BossHead } from './Boss.js';
 import { BossL } from './Bossleft.js';
 import { BossR } from './Bossright.js';
+import { Game } from './game.js';
 
 
 export class Bullet extends Actor {
 
-    points = 0
+    game
 
     constructor(){
 
@@ -18,11 +19,12 @@ export class Bullet extends Actor {
         })
     }
 
-    onInitialize(){
+    onInitialize(engine){
 
         this.body.collisionType = CollisionType.Active;
         this.body.useGravity = false;
 
+        this.game = engine
         this.graphics.add(Resources.Plaser.toSprite());
         this.scale = new Vector(0.35,0.4);
         this.vel = new Vector(0, -600);
@@ -35,19 +37,19 @@ export class Bullet extends Actor {
         if(event.other instanceof BossHead) {
          
             this.kill();
-            this.points + 10
+            this.Game.score += 1000
         }
 
         if(event.other instanceof BossL) {
       
             this.kill();
-            this.points + 10
+            this.Game.score += 10
         }
 
         if(event.other instanceof BossR) {
    
             this.kill(); 
-            this.points + 10
+            this.Game.score += 10
         }
-    }
+     }
 }
