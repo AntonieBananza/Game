@@ -1,10 +1,10 @@
-import { Actor, Vector, Random, CollisionType, Shape } from 'excalibur'
+import { Actor, Vector, Random, CollisionType, Shape, Scene } from 'excalibur'
 import { Resources } from './resources.js'
 
 import { BossHead } from './Boss.js';
 import { BossL } from './Bossleft.js';
 import { BossR } from './Bossright.js';
-import { Game } from './game.js';
+
 
 
 export class Bullet extends Actor {

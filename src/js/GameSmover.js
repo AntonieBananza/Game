@@ -13,6 +13,9 @@ export class GameSmover extends Scene {
     }
 
     onInitialize(engine){
+
+        console.log(engine.score)
+        
         const spacePaper = new SpacePaper();
         this.add(spacePaper);
 
@@ -21,7 +24,7 @@ export class GameSmover extends Scene {
     
         const StartOverr = new NewGame();
         this.add(StartOverr);
-        console.log(engine.score)
+        
     }
 
 }
