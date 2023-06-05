@@ -65,7 +65,7 @@ export class BossHead extends Actor {
         const ohNoBullet = new BossOhNo();
         ohNoBullet.pos = this.pos.clone();
         ohNoBullet.scale = new Vector(0.1,0.5);
-        ohNoBullet.vel = new Vector(0, 500);
+        ohNoBullet.vel = new Vector(0, 400);
         this.scene.add(ohNoBullet);  
     }
 }

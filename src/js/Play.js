@@ -13,8 +13,8 @@ export class GameBegin extends Actor {
 
     onInitialize(engine){
 
-        this.pos = new Vector (400, 480);
-        this.scale = new Vector (0.5, 0.5);
+        this.pos = new Vector (400, 380);
+        this.scale = new Vector (0.4, 0.4);
 
         this.graphics.add(Resources.StartGame.toSprite());
         this.enableCapturePointer = true;

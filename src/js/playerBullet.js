@@ -43,13 +43,14 @@ export class Bullet extends Actor {
         if(event.other instanceof BossL) {
       
             this.kill();
-            this.game.score += 10
+            this.game.score += 750
         }
 
         if(event.other instanceof BossR) {
    
             this.kill(); 
-            this.game.score += 10
+            this.game.score += 750
         }
      }
+     
 }

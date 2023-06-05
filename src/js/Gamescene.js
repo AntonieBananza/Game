@@ -1,4 +1,4 @@
-import { Scene, Vector } from "excalibur"
+import { Scene, Vector, Label, FontUnit, Font} from "excalibur"
 import { Player } from './Player.js'
 import { BorderL } from './BorderL'
 import { BorderR } from './BorderR'
@@ -59,5 +59,14 @@ export class Scene1 extends Scene {
         this.add(this.bossRArm);
         this.bossRArm.pos = new Vector(600, 50)
         
+        let label = new Label({
+            text: 'Score: 0',
+            pos: new Vector(100, 100),
+            font: new Font({
+              family: 'impact',
+              size: 24,
+              unit: FontUnit.Px
+            })
+          })
     }
 }
