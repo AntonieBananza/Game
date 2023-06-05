@@ -26,7 +26,7 @@ export class Bullet extends Actor {
 
         this.game = engine
         this.graphics.add(Resources.Plaser.toSprite());
-        this.scale = new Vector(0.35,0.4);
+        this.scale = new Vector(0.2,0.4);
         this.vel = new Vector(0, -600);
 
         this.on("collisionstart", (event) => this.hit(event));
@@ -37,19 +37,19 @@ export class Bullet extends Actor {
         if(event.other instanceof BossHead) {
          
             this.kill();
-            this.Game.score += 1000
+            this.game.score += 1000
         }
 
         if(event.other instanceof BossL) {
       
             this.kill();
-            this.Game.score += 10
+            this.game.score += 10
         }
 
         if(event.other instanceof BossR) {
    
             this.kill(); 
-            this.Game.score += 10
+            this.game.score += 10
         }
      }
 }

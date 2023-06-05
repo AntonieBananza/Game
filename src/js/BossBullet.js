@@ -6,43 +6,40 @@ import { Bullet } from './playerBullet.js'
 import { BossHead } from './Boss.js'
 
 
-export class ohNo extends Actor {
+export class BossOhNo extends Actor {
    
 
     constructor(){
 
         super({
-            width: Resources.BossPellet.width,
-            height: Resources.BossPellet.height
+            width: Resources.Plaser.width,
+            height: Resources.Plaser.height
         })
     }
 
     onInitialize(){
 
-        this.body.collisionType = CollisionType.Active;
+        this.body.collisionType = CollisionType.Passive
         this.body.useGravity = false;
 
-        this.graphics.add(Resources.BossPellet.toSprite());
+        this.graphics.add(Resources.Plaser.toSprite());
         
         
 
-        this.on("collisionstart", (event) => this.ohShoot(event));
+        this.on("collisionstart", (event) => this.ShootShoot(event));
     }
 
-    ohShoot(event) {
+    ShootShoot(event) {
 
         if(event.other instanceof Player) {
             event.other.Boom()
             this.kill()
         }
         if(event.other instanceof Bullet) {
-            this.kill()
             event.other.kill()
+            
         }
-        if(event.other instanceof ohNo) {
-            this.kill()
-           
-        }
+
     }
 
 

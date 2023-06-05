@@ -12,6 +12,8 @@ import rightborder from '../images/rightborder.png'
 import explosion from '../images/explosion.gif'
 import gameover from '../images/GameOver.png'
 import startover from '../images/StartOver.png'
+import Titlecard from '../images/Titlecard.png'
+import StartGame from '../images/startgame.png'
 
 const Resources = {
     Background: new ImageSource(background),
@@ -26,7 +28,9 @@ const Resources = {
     BorderR: new ImageSource(rightborder),
     Explosion: new ImageSource(explosion),
     GameOver: new ImageSource(gameover),
-    StartOver: new ImageSource(startover)
+    StartOver: new ImageSource(startover),
+    TitleCard: new  ImageSource(Titlecard),
+    StartGame: new ImageSource(StartGame)
 }
 const ResourceLoader = new Loader([
         Resources.Background, 
@@ -41,7 +45,9 @@ const ResourceLoader = new Loader([
         Resources.BorderR,
         Resources.Explosion,
         Resources.GameOver,
-        Resources.StartOver
+        Resources.StartOver,
+        Resources.TitleCard,
+        Resources.StartGame
 ])
 
 export { Resources, ResourceLoader }

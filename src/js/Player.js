@@ -11,6 +11,7 @@ export class Player extends Actor {
     timer
     cooldown = false
     timer2
+    bulletDrop = this.pos.y -100
 
     constructor(){
 
@@ -80,9 +81,9 @@ export class Player extends Actor {
 
     attack() {
         if(this.cooldown === false){
-        this.pos = new Vector(this.pos.x , 445);
+        this.pos = new Vector(this.pos.x , this.pos.y);
         const plaser = new Bullet();
-        plaser.pos = this.pos.clone();
+        plaser.pos = new Vector(this.pos.x , this.pos.y - 70);
         this.scene.add(plaser);
         this.cooldown = true
         this.timer.start();

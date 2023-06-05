@@ -16,7 +16,7 @@ export class BossR extends Actor {
         this.timer = new Timer({
             fcn: () => this.shoot(),
             repeats: true,
-            interval:1500
+            interval:1250
         })
     }  
 
@@ -54,7 +54,7 @@ export class BossR extends Actor {
         const ohNoBullet = new ohNo();
         ohNoBullet.pos = this.pos.clone();
         ohNoBullet.scale = new Vector(0.5,0.5);
-        ohNoBullet.vel = new Vector(-200, 300);
+        ohNoBullet.vel = new Vector(-350, 300);
         this.scene.add(ohNoBullet);
 
     }
