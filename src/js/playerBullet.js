@@ -28,7 +28,7 @@ export class Bullet extends Actor {
         this.game = engine
         this.graphics.add(Resources.Plaser.toSprite());
         this.scale = new Vector(0.2,0.4);
-        this.vel = new Vector(0, -600);
+        this.vel = new Vector(0, -750);
 
         this.on("collisionstart", (event) => this.hit(event));
     }

@@ -1,13 +1,13 @@
 import { Actor, Engine, Vector, vec, Scene, ScreenElement, Label, Font, FontUnit, Color, Timer } from "excalibur"
 import { Resources, ResourceLoader } from './resources.js'
-import { Game } from "./game.js"
+
 
 export class UI extends ScreenElement {
 
     
     scoreText
     timer
-    
+    game
 
     constructor() {
         super({ x: 10, y: 10 })
@@ -15,7 +15,7 @@ export class UI extends ScreenElement {
         this.timer = new Timer({
             fcn: () => this.updateScore(),
             repeats: true,
-            interval:1000
+            interval:10
         })
     }
 
@@ -40,7 +40,6 @@ export class UI extends ScreenElement {
     }
 
     updateScore(engine) {
-        console.log(Game.score)
-        this.scoreText.text = `Score: ${Game.score}`
+        this.scoreText.text = `Score: ${this.game.score}`
     }
 }
