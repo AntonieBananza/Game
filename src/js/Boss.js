@@ -7,6 +7,7 @@ export class BossHead extends Actor {
     //points = 0;
     game;
     timer
+    hitTimer
   
 
     constructor() {
@@ -19,7 +20,11 @@ export class BossHead extends Actor {
             repeats: true,
             interval:5000
         })
-
+        this.hitTimer = new Timer({
+            fcn: () => this.returnHit(),
+            repeats: false,
+            interval:200
+        })
     }  
 
     onInitialize(engine){
@@ -27,7 +32,7 @@ export class BossHead extends Actor {
         this.body.CollisionType = CollisionType.Fixed
 
         this.graphics.add('normal', Resources.BossHead.toSprite());
-        this.graphics.add('hit', Resources.BossHead.toSprite());
+        this.graphics.add('hit', Resources.HitBoss.toSprite());
 
         this.graphics.use('normal')
 
@@ -35,6 +40,7 @@ export class BossHead extends Actor {
 
         this.game = engine
         this.game.currentScene.add(this.timer)
+        this.game.currentScene.add(this.hitTimer)
 
         this.timer.start();
 
@@ -53,7 +59,8 @@ export class BossHead extends Actor {
     getHit() {
 
         this.graphics.use('hit')
-
+        this.hitTimer.start();
+    
     }
 
     returnHit() {

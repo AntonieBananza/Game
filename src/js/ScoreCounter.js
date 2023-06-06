@@ -1,14 +1,22 @@
-import { Actor, Engine, Vector, vec, Scene, ScreenElement, Label, Font, FontUnit, Color } from "excalibur"
+import { Actor, Engine, Vector, vec, Scene, ScreenElement, Label, Font, FontUnit, Color, Timer } from "excalibur"
 import { Resources, ResourceLoader } from './resources.js'
 import { Game } from "./game.js"
 
 export class UI extends ScreenElement {
 
-    scoreUI = Game.score
+    
     scoreText
+    timer
+    
 
     constructor() {
         super({ x: 10, y: 10 })
+
+        this.timer = new Timer({
+            fcn: () => this.updateScore(),
+            repeats: true,
+            interval:1000
+        })
     }
 
     onInitialize(engine) {
@@ -23,10 +31,16 @@ export class UI extends ScreenElement {
             pos: new Vector(50, 550)
         })
         this.addChild(this.scoreText)
+
+        this.game = engine
+        this.game.currentScene.add(this.timer)
+
+        this.timer.start();
+
     }
 
-    updateScore() {
-        this.scoreUI++
-        this.scoreText.text = `Score: ${this.scoreUI}`
+    updateScore(engine) {
+        console.log(Game.score)
+        this.scoreText.text = `Score: ${Game.score}`
     }
 }

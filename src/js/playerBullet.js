@@ -4,6 +4,7 @@ import { Resources } from './resources.js'
 import { BossHead } from './Boss.js';
 import { BossL } from './Bossleft.js';
 import { BossR } from './Bossright.js';
+import { UI } from './ScoreCounter.js';
 
 
 
@@ -14,7 +15,7 @@ export class Bullet extends Actor {
     constructor(){
 
         super({
-            width: Resources.Plaser.width,
+            width: 8,
             height: Resources.Plaser.height
         })
     }
@@ -38,6 +39,8 @@ export class Bullet extends Actor {
          
             this.kill();
             this.game.score += 1000
+            event.other.getHit()
+            
         }
 
         if(event.other instanceof BossL) {

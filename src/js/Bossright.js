@@ -11,8 +11,8 @@ export class BossR extends Actor {
 
     constructor() {
         super({
-            width: 64,
-            height: 64
+            width: 50,
+            height: 60
         })
         const runSheet = SpriteSheet.fromImageSource({
             image: Resources.SSRarm,

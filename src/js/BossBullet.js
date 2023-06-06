@@ -12,8 +12,8 @@ export class BossOhNo extends Actor {
     constructor(){
 
         super({
-            width: Resources.Plaser.width,
-            height: Resources.Plaser.height
+            width: 10,
+            height: 35
         })
     }
 

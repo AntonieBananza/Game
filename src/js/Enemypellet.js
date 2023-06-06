@@ -12,8 +12,8 @@ export class ohNo extends Actor {
     constructor(){
 
         super({
-            width: Resources.BossPellet.width,
-            height: Resources.BossPellet.height
+            width: 30,
+            height: 30
         })
     }
 
