@@ -6,6 +6,7 @@ import { BossHead } from './Boss'
 import { BossL } from './Bossleft'
 import { BossR } from './Bossright'
 import { SpacePaper } from './Background'
+import { UI } from "./ScoreCounter.js"
 
 export class Scene1 extends Scene {
 
@@ -59,14 +60,8 @@ export class Scene1 extends Scene {
         this.add(this.bossRArm);
         this.bossRArm.pos = new Vector(600, 50)
         
-        let label = new Label({
-            text: 'Score: 0',
-            pos: new Vector(100, 100),
-            font: new Font({
-              family: 'impact',
-              size: 24,
-              unit: FontUnit.Px
-            })
-          })
+        const UserInterface = new UI()
+        this.add(UserInterface);
+        
     }
 }

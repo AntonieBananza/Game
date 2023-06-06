@@ -2,6 +2,7 @@ import { Scene, Vector } from "excalibur"
 import { SpacePaper } from './Background'
 import { GameOver } from "./Over"
 import { NewGame } from "./StartOver";
+import { UI } from "./ScoreCounter";
 
 export class GameSmover extends Scene {
 
@@ -24,6 +25,9 @@ export class GameSmover extends Scene {
     
         const StartOverr = new NewGame();
         this.add(StartOverr);
+
+        const UserInterface = new UI()
+        this.add(UserInterface);
         
     }
 

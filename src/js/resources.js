@@ -14,6 +14,8 @@ import gameover from '../images/GameOver.png'
 import startover from '../images/StartOver.png'
 import Titlecard from '../images/Titlecard.png'
 import StartGame from '../images/startgame.png'
+import SpriteSheetLeft from '../images/leftarmsheet.png'
+import SpriteSheetRight from '../images/rightarmsheet.png'
 
 const Resources = {
     Background: new ImageSource(background),
@@ -30,7 +32,9 @@ const Resources = {
     GameOver: new ImageSource(gameover),
     StartOver: new ImageSource(startover),
     TitleCard: new  ImageSource(Titlecard),
-    StartGame: new ImageSource(StartGame)
+    StartGame: new ImageSource(StartGame),
+    SSLarm: new ImageSource(SpriteSheetLeft),
+    SSRarm: new ImageSource(SpriteSheetRight)
 }
 const ResourceLoader = new Loader([
         Resources.Background, 
@@ -47,7 +51,9 @@ const ResourceLoader = new Loader([
         Resources.GameOver,
         Resources.StartOver,
         Resources.TitleCard,
-        Resources.StartGame
+        Resources.StartGame,
+        Resources.SSLarm,
+        Resources.SSRarm
 ])
 
 export { Resources, ResourceLoader }
