@@ -71,6 +71,19 @@ export class Player extends Actor {
             console.log('pew')
         }
 
+        if(engine.input.gamepads.at(0).getAxes(Input.Axes.LeftStickX) > 0.5) {
+            xspeed = 250;
+        }
+
+        if(engine.input.gamepads.at(0).getAxes(Input.Axes.LeftStickX) < -0.5) {
+            xspeed = -250;
+        }
+
+        if(engine.input.gamepads.at(0).isButtonPressed(Input.Buttons.Face1)) {
+            this.attack();
+            console.log('pew')
+        }
+
         this.vel = new Vector(xspeed, yspeed)
     }   
 

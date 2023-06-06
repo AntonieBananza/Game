@@ -1,4 +1,4 @@
-import { Scene, Vector, Label, FontUnit, Font} from "excalibur"
+import { Scene, Vector, Label, FontUnit, Font, Engine} from "excalibur"
 import { Player } from './Player.js'
 import { BorderL } from './BorderL'
 import { BorderR } from './BorderR'
@@ -14,6 +14,7 @@ export class Scene1 extends Scene {
     bossHead
     bossLArm
     bossRArm
+    game
     
 
 
@@ -24,17 +25,7 @@ export class Scene1 extends Scene {
         })
     }
 
-    onActivate(ctx){
-        this.player.pos = new Vector(400, 480)
-        this.bossHead.pos = new Vector(400, 25)
-        this.bossLArm.pos = new Vector(200, 50)
-        this.bossRArm.pos = new Vector(600, 50)
-
-        this.player.reset()
-
-    }
-
-    onInitialize(){
+    onInitialize(engine){
         const spacePaper = new SpacePaper();
         this.add(spacePaper);
 
@@ -62,6 +53,20 @@ export class Scene1 extends Scene {
         
         const UserInterface = new UI()
         this.add(UserInterface);
+
+        this.game = engine
         
+    }
+
+    onActivate(ctx, engine){
+        this.player.pos = new Vector(400, 480)
+        this.bossHead.pos = new Vector(400, 25)
+        this.bossLArm.pos = new Vector(200, 50)
+        this.bossRArm.pos = new Vector(600, 50)
+
+        this.game.score = 0
+
+        this.player.reset()
+
     }
 }
